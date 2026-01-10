@@ -256,6 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial data load
     refreshAll();
 
-    // Auto-refresh every 5 minutes
-    setInterval(refreshAll, 5 * 60 * 1000);
+    // Auto-refresh every hour (users can manually refresh anytime)
+    setInterval(refreshAll, 60 * 60 * 1000);
 });
