@@ -7,24 +7,52 @@ const ALLOWED_ORIGINS = [
     'api.coingecko.com',
     'fred.stlouisfed.org',
     'earthquake.usgs.gov',
-    // RSS feeds
+    // News RSS feeds
     'feeds.bbci.co.uk',
     'feeds.npr.org',
     'rss.nytimes.com',
-    'feeds.reuters.com',
     'rss.cnn.com',
     'www.theguardian.com',
+    'apnews.com',
+    // Tech feeds
     'news.ycombinator.com',
+    'hnrss.org',
     'feeds.arstechnica.com',
     'www.theverge.com',
-    'blog.openai.com',
+    'www.technologyreview.com',
     'feeds.feedburner.com',
     'arxiv.org',
+    'rss.arxiv.org',
+    // Finance feeds
+    'www.cnbc.com',
+    'feeds.marketwatch.com',
+    'finance.yahoo.com',
+    'www.ft.com',
+    // Government feeds
     'www.whitehouse.gov',
     'www.federalreserve.gov',
     'www.sec.gov',
-    'home.treasury.gov',
-    'www.state.gov'
+    'www.defense.gov',
+    'www.cisa.gov',
+    // Intel/Defense feeds
+    'www.csis.org',
+    'www.brookings.edu',
+    'www.cfr.org',
+    'www.defenseone.com',
+    'warontherocks.com',
+    'breakingdefense.com',
+    'www.thedrive.com',
+    'thediplomat.com',
+    'www.al-monitor.com',
+    'www.bellingcat.com',
+    'krebsonsecurity.com',
+    // AI news feeds
+    'openai.com',
+    'venturebeat.com',
+    'blog.google',
+    'news.mit.edu',
+    'huggingface.co',
+    'deepmind.google'
 ];
 
 // Cache TTLs by content type/host (in seconds)

@@ -373,15 +373,12 @@ export async function fetchAINews() {
     return results.flat().sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 15);
 }
 
-// Fetch Fed balance sheet from FRED - now with ServiceClient
+// Fetch Fed balance sheet from FRED - routed through CORS proxy
 export async function fetchFedBalance() {
     try {
-        const result = await serviceClient.request('FRED', '/graph/fredgraph.csv', {
-            params: { id: 'WALCL', cosd: '2024-01-01' },
-            responseType: 'text'
-        });
-
-        const text = result.data;
+        // FRED doesn't support CORS, so we route through proxy
+        const fredUrl = 'https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL&cosd=2024-01-01';
+        const text = await serviceClient.fetchWithProxy(fredUrl);
 
         // Parse CSV (format: observation_date,WALCL)
         const lines = text.trim().split('\n').slice(1); // Skip header

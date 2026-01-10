@@ -52,7 +52,7 @@ export const FEEDS = {
         { name: 'BBC World', url: 'https://feeds.bbci.co.uk/news/world/rss.xml' },
         { name: 'NPR News', url: 'https://feeds.npr.org/1001/rss.xml' },
         { name: 'Guardian World', url: 'https://www.theguardian.com/world/rss' },
-        { name: 'Reuters World', url: 'https://www.reutersagency.com/feed/?taxonomy=best-sectors&post_type=best' }
+        { name: 'NYT World', url: 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml' }
     ],
     tech: [
         { name: 'Hacker News', url: 'https://hnrss.org/frontpage' },
@@ -66,15 +66,14 @@ export const FEEDS = {
         { name: 'CNBC', url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html' },
         { name: 'MarketWatch', url: 'https://feeds.marketwatch.com/marketwatch/topstories' },
         { name: 'Yahoo Finance', url: 'https://finance.yahoo.com/news/rssindex' },
-        { name: 'Reuters Business', url: 'https://www.reutersagency.com/feed/?best-topics=business-finance&post_type=best' },
+        { name: 'BBC Business', url: 'https://feeds.bbci.co.uk/news/business/rss.xml' },
         { name: 'FT', url: 'https://www.ft.com/rss/home' }
     ],
     gov: [
         { name: 'White House', url: 'https://www.whitehouse.gov/news/feed/' },
         { name: 'Federal Reserve', url: 'https://www.federalreserve.gov/feeds/press_all.xml' },
         { name: 'SEC Announcements', url: 'https://www.sec.gov/news/pressreleases.rss' },
-        { name: 'Treasury', url: 'https://home.treasury.gov/system/files/136/treasury-rss.xml' },
-        { name: 'State Dept', url: 'https://www.state.gov/rss-feed/press-releases/feed/' }
+        { name: 'DoD News', url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?max=10&ContentType=1&Site=945' }
     ]
 };
 
@@ -91,7 +90,7 @@ export const INTEL_SOURCES = [
     { name: 'Al-Monitor', url: 'https://www.al-monitor.com/rss', type: 'regional', topics: ['middle-east'], region: 'MENA' },
     { name: 'Bellingcat', url: 'https://www.bellingcat.com/feed/', type: 'osint', topics: ['investigation', 'osint'] },
     { name: 'DoD News', url: 'https://www.defense.gov/DesktopModules/ArticleCS/RSS.ashx?max=10&ContentType=1&Site=945', type: 'govt', topics: ['military', 'official'] },
-    { name: 'State Dept', url: 'https://www.state.gov/rss-feed/press-releases/feed/', type: 'govt', topics: ['diplomacy', 'official'] },
+    { name: 'CSIS Analysis', url: 'https://www.csis.org/analysis/feed', type: 'govt', topics: ['diplomacy', 'official'] },
     { name: 'CISA Alerts', url: 'https://www.cisa.gov/uscert/ncas/alerts.xml', type: 'cyber', topics: ['cyber', 'security'] },
     { name: 'Krebs Security', url: 'https://krebsonsecurity.com/feed/', type: 'cyber', topics: ['cyber', 'security'] }
 ];
@@ -1126,6 +1125,6 @@ export const AI_FEEDS = [
     { name: 'Google AI', url: 'https://blog.google/technology/ai/rss/' },
     { name: 'DeepMind', url: 'https://deepmind.google/blog/rss.xml' },
     { name: 'Hugging Face', url: 'https://huggingface.co/blog/feed.xml' },
-    { name: 'MIT AI News', url: 'https://news.mit.edu/topic/artificial-intelligence2-rss.xml' },
+    { name: 'MIT AI News', url: 'https://news.mit.edu/rss/topic/artificial-intelligence2' },
     { name: 'VentureBeat AI', url: 'https://venturebeat.com/category/ai/feed' }
 ];

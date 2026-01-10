@@ -80,7 +80,7 @@ const SERVICE_CONFIG = {
         id: 'cors_proxy',
         baseUrl: null,                    // Uses proxy URLs from list
         proxies: [
-            'https://corsproxy.io/?',
+            'https://situation-monitor-proxy.seanthielen-e.workers.dev/?url=',
             'https://api.allorigins.win/raw?url='
         ],
         timeout: 12000,

@@ -131,9 +131,12 @@ export function renderPolymarket(markets) {
     }
 
     const formatVolume = (v) => {
+        // Handle pre-formatted strings (e.g., '2.4M')
+        if (typeof v === 'string') return '$' + v;
+        // Handle numeric values
         if (v >= 1000000) return '$' + (v / 1000000).toFixed(1) + 'M';
         if (v >= 1000) return '$' + (v / 1000).toFixed(0) + 'K';
-        return '$' + v.toFixed(0);
+        return '$' + (v || 0).toFixed(0);
     };
 
     panel.innerHTML = markets.map(m => `
