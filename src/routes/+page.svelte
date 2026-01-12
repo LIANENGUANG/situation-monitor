@@ -20,9 +20,19 @@
 		IntelPanel,
 		SituationPanel,
 		WorldLeadersPanel,
-		PrinterPanel
+		PrinterPanel,
+		FedPanel
 	} from '$lib/components/panels';
-	import { news, markets, monitors, settings, refresh, allNewsItems } from '$lib/stores';
+	import {
+		news,
+		markets,
+		monitors,
+		settings,
+		refresh,
+		allNewsItems,
+		fedIndicators,
+		fedNews
+	} from '$lib/stores';
 	import {
 		fetchAllNews,
 		fetchAllMarkets,
@@ -30,7 +40,9 @@
 		fetchWhaleTransactions,
 		fetchGovContracts,
 		fetchLayoffs,
-		fetchWorldLeaders
+		fetchWorldLeaders,
+		fetchFedIndicators,
+		fetchFedNews
 	} from '$lib/api';
 	import type { Prediction, WhaleTransaction, Contract, Layoff } from '$lib/api';
 	import type { CustomMonitor, WorldLeader } from '$lib/types';
@@ -107,6 +119,21 @@
 		}
 	}
 
+	async function loadFedData() {
+		if (!isPanelVisible('fed')) return;
+		fedIndicators.setLoading(true);
+		fedNews.setLoading(true);
+		try {
+			const [indicatorsData, newsData] = await Promise.all([fetchFedIndicators(), fetchFedNews()]);
+			fedIndicators.setData(indicatorsData);
+			fedNews.setItems(newsData);
+		} catch (error) {
+			console.error('Failed to load Fed data:', error);
+			fedIndicators.setError(String(error));
+			fedNews.setError(String(error));
+		}
+	}
+
 	// Refresh handlers
 	async function handleRefresh() {
 		refresh.startRefresh();
@@ -168,7 +195,13 @@
 		async function initialLoad() {
 			refresh.startRefresh();
 			try {
-				await Promise.all([loadNews(), loadMarkets(), loadMiscData(), loadWorldLeaders()]);
+				await Promise.all([
+					loadNews(),
+					loadMarkets(),
+					loadMiscData(),
+					loadWorldLeaders(),
+					loadFedData()
+				]);
 				refresh.endRefresh();
 			} catch (error) {
 				refresh.endRefresh([String(error)]);
@@ -279,6 +312,13 @@
 			{#if isPanelVisible('intel')}
 				<div class="panel-slot">
 					<IntelPanel />
+				</div>
+			{/if}
+
+			<!-- Fed Panel -->
+			{#if isPanelVisible('fed')}
+				<div class="panel-slot">
+					<FedPanel />
 				</div>
 			{/if}
 
